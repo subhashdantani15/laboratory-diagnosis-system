@@ -1,0 +1,55 @@
+{% extends 'admin_base.html' %}
+{% load static %}
+{% block content %}
+
+
+
+
+<div class="dashboard">
+    
+
+    <div class="card" style="margin-top:100px; padding:0px 10px 0px 10px ;">
+        <div class="baner" style="margin: auto; margin-top:-4%; margin-bottom:20px;">
+            <h3 class="text-center" style="font-weight: bold; padding: 10px 0px 10px 0px;"> Patient Appointment Records</h3>
+        </div>
+        
+        <table class="table table-hover table-striped" id="myTable">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Patient Name</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th>Schedule</th>	
+                    <th>Test type</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                
+                </tr>
+            </thead>
+            
+            <tbody>
+                {% if book %}
+                                    {% for x in book %}
+                                    <tr>
+                                        <td>{{forloop.counter}}</td>
+                                        <td>{{x.name}}</td>
+                                        <td>{{x.phone}}</td>
+                                        <td>{{x.email}}</td>
+                                        <td>{{x.schedule}}</td>
+                                        <td>{{x.Test_name}}</td>
+                                        <td>{{x.status}}</td>
+                                        
+                                         <td><a class="btn btn-danger" href="{% url 'laboratory:edit_appo' x.id %}">Edit</a></td>
+                                    </tr>
+                                    {% endfor %}
+                                    {% endif %}
+								</tbody>
+            </tbody>
+        
+        </table>
+    
+    </div>
+</div>
+  
+{% endblock %}

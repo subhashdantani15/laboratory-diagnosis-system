@@ -1,0 +1,40 @@
+{% extends 'admin_base.html' %}
+{% load static %}
+{% block content %}
+
+<div></div>
+
+<div class="dashboard">
+    <div class="card" style="margin-top:100px; padding:0px 10px 0px 10px ;">
+        <div class="baner" style="margin: auto; margin-top:-4%; margin-bottom:20px;">
+            <h3 class="text-center" style="font-weight: bold; padding: 10px 0px 10px 0px;"> Edit Laboratory Profile</h3>
+        </div>
+        <form method="post" class="col-8 mt-5" style="margin:auto;">
+            {% csrf_token%}
+
+            <div class="form-group">
+                <label>Enter name</label>
+                <input type="text" placeholder="Enter name" class="form-control" name="name"
+                value="{{n.Laboratoryfname}}" required>
+            </div>
+            <div class="form-group">
+                <label>Enter email</label>
+                <input type="email" placeholder="Enter email" class="form-control" name="email"
+                    value="{{n.Lid}}" readonly>
+            </div>
+            <div class="form-group">
+                <label>Enter password</label>
+                <input type="password" placeholder="Enter password" class="form-control"
+                    name="passowrd" value="{{n.Laboratorypwd}}" required>
+            </div>
+
+            <br>
+            <input type="submit" class="btn btn-block" value="submit"  />
+
+        </form>
+        </br>
+    </div>
+</div>
+
+
+    {% endblock %}

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.1/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
+
+</head>
+<body>
+    <div class="container" style="margin-top: 150px; border: 1px solid black;">
+        <hr>
+        <div class="row">
+            <div class="col-6">
+                
+                <div class="row">
+                    <div class="col-4">PATIENT NAME:</div>
+                    <div class="col-4">{{b.patientname}}</div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-4">REF BY DR.</div>
+                    <div class="col-4">DR. {{ b.l_name }} M.B.B.S.</div>
+                </div>
+                <div class="row">
+                    <div class="col-4">SMPLE COLL AT:</div>
+                    <div class="col-4">12{{b.lab_name}}</div>
+                </div>
+            </div>
+            <div class="col-2"></div>
+            <div class="col-4">
+                <div class="row">
+                    <div class="col-4">DATE:</div>
+                    <div class="col-4">{{b.date_of_test}}</div>
+                </div>
+                <div class="row">
+                    <div class="col-4">SEX:</div>
+                    <div class="col-4">{{c.usergender}}</div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-4">AGE</div>
+                    <div class="col-4">{{c.user_age}} Years</div>
+                </div>
+                
+            
+            </div>
+        </div>
+        <hr>
+            <center><h4>COMPLETE BLOOD COUNT</h4></center>
+        <hr>
+    <table id="example" class="table table-striped  dt-responsive nowrap" style="width:100%">
+        <thead>
+            <tr>
+                <th width="33%"><u>Test</u></th>
+                <th width="33%"><u>Result</u></th>
+                <th width="33%"><u>Reference Range</u></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Haemoglobin</td>
+                <td>{{b.Haemoglobin}}</td>
+                <td>Male: 14-16 g%</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td>Female: 12-14 g%</td>
+            </tr>
+            <tr>
+                <td>RBC Count</td>
+                <td>{{b.RBC_Count}}</td>
+                <td>14-16 g%</td>
+            </tr>
+            <tr>
+                <td>PCV</td>
+                <td>{{b.PCV}}</td>
+                <td>35-45%</td>
+            </tr>
+            <tr>
+                <th><u>RBC INDICES</u></th>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>MCV</td>
+                <td>{{b.MCV}}</td>
+                <td>80-99 fl</td>
+            </tr>
+            <tr>
+                <td>MCH</td>
+                <td>{{b.MCH}}</td>
+                <td>28-32 pg</td>
+            </tr>
+            <tr>
+                <td>MCHC</td>
+                <td>{{b.MCHC}}</td>
+                <td>30-34%</td>
+            </tr>
+            <tr>
+                <td>RDW</td>
+                <td>{{b.RDW}}</td>
+                <td>9-17 fl</td>
+            </tr>
+            <tr>
+                <th><u>TOTAL WBC COUNT</u></th>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Total WBC count</td>
+                <td>{{b.Total_WBC_Count}}</td>
+                <td>4000-11000 /cu.mm</td>
+            </tr>
+            <tr>
+                <td>Neutrophils</td>
+                <td>{{b.Neutrophils}}</td>
+                <td>40-75%</td>
+            </tr>
+            <tr>
+                <td>Lymphocytes</td>
+                <td>{{b.Lymphocytes}}</td>
+                <td>20-45%</td>
+            </tr>
+            <tr>
+                <td>Eosinophils</td>
+                <td>{{b.Eosinophils}}</td>
+                <td>00-06%</td>
+            </tr>
+            <tr>
+                <td>Monosytes</td>
+                <td>{{b.Monocytes}}</td>
+                <td>00-10%</td>
+            </tr>
+            <tr>
+                <td>Basophils</td>
+                <td>{{b.Basophils}}</td>
+                <td>00-01%</td>
+            </tr>
+            <tr>
+                <th><u>PLATELETS</u></th>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Platelet Count</td>
+                <td>{{b.Platelet_Count}}</td>
+                <td>150000-450000/cu.mm</td>
+            </tr>
+           
+            <tr>
+                <th><u>PERIPHERAL BLOOD SMEAR</u></th>
+                <td></td>
+                <td></td>
+            </tr>
+            
+            <tr>
+                <td>WBCs on PS</td>
+                <td>{{b.WBCs_on_PS}}</td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="footer">
+        <hr>
+     <center>   <h4>---- End Of Report. ----</h4></center>
+     <hr>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,65 @@
+{% extends 'admin_base.html' %}
+{% load static %}
+{% block content %}
+
+<h1 class="text-center mb-2" style="font-family: 'Adamina';font-size: 40px; color:rgba(255, 165, 0, 1); ">
+    Welcome {{ a.Laboratorymname}}
+</h1>
+<div class="dashboard">
+    
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="row m-5">
+                        <div class="col-md-8">
+                            {% comment %} <img src="{% static 'icon/test.png' %}" class="fafa" height="50px" width="50px"><br> {% endcomment %}
+                            <span class="text-muted">Total Patient Test Report</span>
+                        </div>
+                        <div class="col-md-4">
+                            <span class="ts" style="font-weight: 900; font-size: 25px;">{{ c }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    <div class="card" style="margin-top:100px; padding:0px 10px 0px 10px ;">
+        <div class="baner" style="margin: auto; margin-top:-4%; margin-bottom:20px;">
+            <h3 class="text-center" style="font-weight: bold; padding: 10px 0px 10px 0px;"> Patient Records Report</h3>
+        </div>
+        <table class="table table-hover table-striped" id="myTable">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Patient NAME</th>
+                    <th>Patient Email</th>
+                    <th>Test Name</th>
+                    <th>Haemoglobin</th> 
+                    <th>Platelet_Count</th>
+                    <th>Date</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in b %}
+                <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td>{{ i.patientname }}</td>
+                    <td>{{ i.email }}</td>
+                    <td>{{ i.Test_name }}</td>
+                    <td>{{ i.Haemoglobin }}</td>
+                    <td>{{ i.Platelet_Count }}</td>
+                    <td>{{ i.date_of_test }}</td>
+                    <td>
+                        <a href="{% url 'laboratory:view_test' i.id %}">view</a>
+                        <a href="{% url 'laboratory:delete_test' i.id %}"><img src="{% static 'icon/delete.png' %}" height="30px"
+                                    width="30px"></a> 
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+  
+{% endblock %}

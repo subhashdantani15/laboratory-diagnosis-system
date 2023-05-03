@@ -1,0 +1,53 @@
+{% extends 'admin_base.html' %}
+{% load static %}
+{% block content %}
+
+
+
+
+<div class="dashboard">
+    
+
+    <div class="card" style="margin-top:100px; padding:0px 10px 0px 10px ;">
+        <div class="baner" style="margin: auto; margin-top:-4%; margin-bottom:20px;">
+            <h3 class="text-center" style="font-weight: bold; padding: 10px 0px 10px 0px;"> Patient Approved Records</h3>
+        </div>
+        
+        <table class="table table-hover table-striped" id="myTable">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Patient Name</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th>Schedule</th>	
+                    <th>Test type</th>
+                   
+                    <th>Action</th>
+                
+                </tr>
+            </thead>
+            
+            <tbody>
+        
+                                    {% for x in b %}
+                                    <tr>
+                                        <td>{{forloop.counter}}</td>
+                                        <td>{{x.name}}</td>
+                                        <td>{{x.phone}}</td>
+                                        <td>{{x.email}}</td>
+                                        <td>{{x.schedule}}</td>
+                                        <td>{{x.Test_name}}</td>
+                                        <td><a class="btn btn-danger" href="{% url 'laboratory:take_test' x.id %}">Test</a></td>
+                                    </tr>
+                                    {% endfor %}
+                            
+								</tbody>
+            </tbody>
+        
+        </table>
+    
+    </div>
+</div>
+  
+{% endblock %}

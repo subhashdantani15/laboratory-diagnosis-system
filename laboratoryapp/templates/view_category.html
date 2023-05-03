@@ -1,0 +1,39 @@
+{% extends 'admin_base.html' %}
+{% load static %}
+{% block content %}
+
+
+
+<a href="{% url 'laboratory:add_category' %}">add Category</a> 
+<div class="dashboard">
+    
+    <div class="card" style="margin-top:100px; padding:0px 10px 0px 10px ;">
+        <div class="baner" style="margin: auto; margin-top:-4%; margin-bottom:20px;">
+            <h3 class="text-center" style="font-weight: bold; padding: 10px 0px 10px 0px;"> Category Records</h3>
+        </div>
+        <table class="table table-hover table-striped" id="myTable">
+            <thead>
+                <tr>
+                    <th>Category NAME</th>
+                    
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in b %}
+                <tr>
+                    <td>{{ i.category_name }}</td>
+                    <td>
+                        <a href="{% url 'laboratory:edit_category' i.id %}"><img src="{% static 'icon/edit.png' %}" height="30px"
+                                width="30px"></a>
+                        <a href="{% url 'laboratory:del_category' i.id %}"><img src="{% static 'icon/delete.png' %}" height="30px"
+                                    width="30px"></a> 
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+  
+{% endblock %}

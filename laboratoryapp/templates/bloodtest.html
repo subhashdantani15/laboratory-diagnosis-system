@@ -1,0 +1,118 @@
+{% extends 'admin_base.html' %}
+{% load static %}
+{% block content %}
+
+<div></div>
+
+<div class="dashboard">
+    <div class="card" style="margin-top:100px; padding:0px 10px 0px 10px ;">
+        <div class="baner" style="margin: auto; margin-top:-4%; margin-bottom:20px;">
+            <h3 class="text-center" style="font-weight: bold; padding: 10px 0px 10px 0px;"> Blood test</h3>
+        </div>
+        <form method="post" class="col-8 mt-5" style="margin:auto;">
+            {% csrf_token%}
+
+            <div class="form-group">
+                <label>Test name</label>
+                <input type="text"  class="form-control" name="Test_name"
+                value="{{b.Test_name}}" readonly>
+            </div>
+            <div class="form-group">
+                <label>Patient Name</label>
+                <input type="text"  class="form-control" name="patientname"
+                value="{{b.name}}" readonly>
+            </div>
+            <div class="form-group">
+                <label>Patient Email id Name</label>
+                <input type="text"  class="form-control" name="email"
+                value="{{b.email}}" readonly>
+            </div>
+            <div class="form-group">
+                <label>Haemoglobin</label>
+                <input type="number" placeholder="Enter Haemoglobin" class="form-control" name="Haemoglobin"
+                     required>
+            </div>
+            <div class="form-group">
+                <label>RBC Count</label>
+                <input type="number" placeholder="RBC Count" class="form-control"
+                    name="RBC_Count"  required>
+            </div>
+
+            <div class="form-group">
+                <label>PCV</label>
+                <input type="number" placeholder="Enter PCV" class="form-control" name="PCV"
+                 required>
+            </div>
+            <div class="form-group">
+                <label>MCV</label>
+                <input type="number" placeholder="Enter MCV" class="form-control" name="MCV"
+                 required>
+            </div>
+            <div class="form-group">
+                <label>MCH</label>
+                <input type="number" placeholder="Enter MCH" class="form-control" name="MCH"
+                 required>
+            </div>
+            <div class="form-group">
+                <label>MCHC</label>
+                <input type="number" placeholder="Enter MCHC" class="form-control" name="MCHC"
+                 required>
+            </div>
+            <div class="form-group">
+                <label>RDW</label>
+                <input type="number" placeholder="Enter RDW" class="form-control" name="RDW"
+                 required>
+            </div>
+            <div class="form-group">
+                <label>Total WBC Count</label>
+                <input type="number" placeholder="Total WBC Count" class="form-control" name="Total_WBC_Count"
+                 required>
+            </div>
+            <div class="form-group">
+                <label>Neutrophils</label>
+                <input type="number" placeholder="Enter Neutrophils" class="form-control" name="Neutrophils"
+                 required>
+            </div>
+            <div class="form-group">
+                <label>Lymphocytes</label>
+                <input type="number" placeholder="Enter Lymphocytes" class="form-control" name="Lymphocytes"
+                 required>
+            </div>
+            <div class="form-group">
+                <label>Eosinophils</label>
+                <input type="number" placeholder="Enter Eosinophils" class="form-control" name="Eosinophils"
+                 required>
+            </div>
+            <div class="form-group">
+                <label>Monocytes</label>
+                <input type="number" placeholder="Enter Monocytes" class="form-control" name="Monocytes"
+                 required>
+            </div>
+            <div class="form-group">
+                <label>Basophils</label>
+                <input type="number" placeholder="Enter Basophils" class="form-control" name="Basophils"
+                 required>
+            </div>
+            <div class="form-group">
+                <label>Platelet Count</label>
+                <input type="number" placeholder="Enter Platelet Count" class="form-control" name="Platelet_Count"
+                 required>
+            </div>
+            <div class="form-group">
+                <label>WBCs on PS</label>
+                <input type="text" placeholder="Enter WBCs on PS" class="form-control" name="WBCs_on_PS"
+                 required>
+            </div>
+            <input type="hidden" name="lab_name" value="{{c}}" readonly>
+            <input type="hidden" name="l_name" value="{{a}}" readonly>
+            <input type="hidden" name="test" placeholder="test" value="True" readonly>
+            <br>
+            <input type="submit" class="btn btn-block" value="submit"  />
+
+        </form>
+        </br>
+    </div>
+</div>
+
+
+    {% endblock %}

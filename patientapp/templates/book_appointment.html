@@ -1,0 +1,186 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book_appoinement</title>
+    <!-- <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"> -->
+
+    <style> 
+        body{
+    margin: 0;
+    padding: 300px;
+    
+    background: #34495e;
+    background-size: 100%;
+    background-position: 100%;
+    font-family: sans-serif;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background: #34495e;
+  }
+
+.book-appoinement{
+    width: 1px;
+    height: 470px;
+    background: black;
+    color: #fff;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    box-sizing: border-box;
+    padding: 70px 30px;
+}
+
+
+
+.book-appoinement input[type="text"], input[type="email"]
+{
+    border: none;
+    border-bottom: 1px solid #fff;
+    padding-right: 10%;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: #fff;
+    font-size: 19px;
+}
+.box input[type = "datetime-local"]{
+    border:0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #3498db;
+    padding: 14px 10px;
+    width: 200px;
+    outline: none;
+    color: white;
+    border-radius: 24px;
+    transition: 0.25s;
+  }
+
+  .box input[type = "text"]:focus{
+    width: 280px;
+    border-color: #2ecc71;
+  }
+
+.book-appoinement select[id="id_department"]{
+    background-color: transparent;
+    
+  color: white;
+  padding-right: 5%;
+}
+
+
+.button {
+  background-color: #4c90af; 
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 19px;
+}
+.time  {
+  background-color: #6f7a6f81; /* Green */
+  border: none;
+  color: white;
+  margin-right: 10%;
+  /* text-align: center; */
+  text-decoration: none;
+  /* display: inline-block; */
+  font-size: 16px;
+}
+
+option{
+    color: rgb(48, 47, 47);
+    font-size: larger;
+}
+
+.box{
+    width: 300px;
+    padding: 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background: #191919;
+    text-align: center;
+}
+
+
+
+        </style>
+</head>
+
+<body>   
+    
+    <div class="book-appoinement">
+        
+    <center>
+    <!--  style="padding-top: 250px;
+        font-size: x-large;" -->
+        <form method="POST" class="box"> 
+        {% csrf_token %}
+            <div>
+                <h1>Book AppointMent</h1>
+            <label>Name:</label>
+           <input type="text" name="name"  value="{{b.userfname}}" readonly>
+        </div>
+        <br>
+        <div class="row">
+        <div>
+            <label>Email:</label>
+           <input type="email" name="email"  value="{{b.uid}}" readonly >
+        </div></div>
+        <br>
+        <div>
+            <label>Phone:</label>  
+           <input type="text" name="phone" placeholder="Enter phone number" value="{{b.usercontactno}}" readonly>
+        </div> 
+        <br>
+        <div class="d-department">
+            <label for="id_department">Test Name:</label>
+            
+            <select name="Test_name" required id="id_department">
+                {% for i in ab %}  
+              <option value="{{i.id}}"
+              selected="selected">{{i.category_name}}</option>
+              {% endfor %} 
+              </select>
+              
+        </div>
+        <br>
+        <div>
+            <label>Schedule:</label>
+            <input type="datetime-local" name="schedule" class="time">          
+        </div>
+        <br>
+         <input type="hidden" name="status" placeholder="status" value="pending" readonly>
+        {% if messages %}
+        {% for result in messages %}
+      <center>  <b style=color:green;>{{result}}</b></center>
+        {% endfor %}
+        {% endif %}
+        <br>
+      
+            <button class="button">Submit here</button>
+            <br><br>
+            <a href="{% url 'user:index' %}" style="color: teal;"> Home Page </a>
+           </form>
+</center>
+</div>
+{% if m %}
+<script>alert("{{m}}")</script>
+{% endif %}
+</body>
+</html>
+

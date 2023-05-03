@@ -1,0 +1,85 @@
+{% extends 'admin_base.html' %}
+{% load static %}
+{% block content %}
+<!--/header-->
+
+<section class="container">
+    <div class="row justify-content-center p-4">
+        <div class="col-12 col-md-6 p-5 card">
+            <h3 class="text-uppercase font-weight-bold text-center">Appointment Edit</h3>
+            <form method="POST" enctype="multipart/form-data" >
+                {% csrf_token %}
+                <br />
+                <div class="form-group row">
+                    <label for="staticName" class="col-4 col-form-label">Patient Name</label>
+                    <div class="col-auto">
+                        <input type="text" readonly class="form-control" id="staticName" value="{{ book.name }}" />
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="staticOwner" class="col-4 col-form-label">Phone</label>
+          <div class="col-auto">
+            <input
+              type="text"
+              readonly
+              class="form-control"
+              id="staticOwner"
+              value="{{ book.phone }}"
+            />
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="staticProperty" class="col-4 col-form-label"
+            >Email</label
+          >
+          <div class="col-auto">
+            <input
+              type="text"
+              readonly
+              class="form-control"
+              id="staticProperty"
+              value="{{ book.email }}"
+            />
+          </div>
+        </div>
+        <div class="form-group row">
+            <label for="staticName" class="col-4 col-form-label">Schedule</label>
+            <div class="col-auto">
+                <input type="text" readonly class="form-control" id="staticName" value="{{ book.schedule }}" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="staticName" class="col-4 col-form-label">Test type</label>
+            <div class="col-auto">
+                <input type="text" readonly class="form-control" id="staticName" value="{{ book.Test_name }}" />
+            </div>
+        </div>
+        <div class="form-group row">
+          <label
+            class="col-auto col-form-label d-inline-block"
+            for="customCheck1"
+            >Want to Approve:</label
+          >
+          <div class="col-7">
+            <select class="form-control w-100 text-center" id="boked" name="boked">
+                <option value="none" selected>select</option>
+                {% comment %} <option value="pending">pending</option> {% endcomment %}
+                <option value="approved">Approve</option>
+                <option value="rejected">Reject</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-12">
+          <input type="submit" value="submit" class="btn btn-primary btn-block" />
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!--  //News section -->
+
+<!-- footers 20 -->
+{% endblock content %}

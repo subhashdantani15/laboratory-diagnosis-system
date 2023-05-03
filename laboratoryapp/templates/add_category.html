@@ -1,0 +1,27 @@
+{% extends 'admin_base.html' %}
+{% load static %}
+{% block content %}
+
+<div></div>
+
+<div class="dashboard">
+    <div class="card" style="margin-top:100px; padding:0px 10px 0px 10px ;">
+        <div class="baner" style="margin: auto; margin-top:-4%; margin-bottom:20px;">
+            <h3 class="text-center" style="font-weight: bold; padding: 10px 0px 10px 0px;"> add category Laboratory</h3>
+        </div>
+        <form method="post" class="col-8 mt-5" style="margin:auto;">
+            {% csrf_token %}
+
+            <div class="form-group">
+                <label>Enter category name</label>
+                <input type="text" placeholder="Enter the category name" class="form-control" name="name">
+            </div>
+            <br>
+            <input type="submit" class="btn btn-block" value="submit"/>
+        </form>
+        </br>
+    </div>
+</div>
+
+
+    {% endblock %}

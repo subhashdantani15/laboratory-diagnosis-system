@@ -1,0 +1,41 @@
+{% extends 'admin_base.html' %}
+{% load static %}
+{% block content %}
+
+
+<div class="dashboard">
+    
+    <div class="card" style="margin-top:100px; padding:0px 10px 0px 10px ;">
+        <div class="baner" style="margin: auto; margin-top:-4%; margin-bottom:20px;">
+            <h3 class="text-center" style="font-weight: bold; padding: 10px 0px 10px 0px;"> Patient Feedback Records </h3>
+        </div>
+        <table class="table table-hover table-striped" id="myTable">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Patient NAME</th>
+                    <th>Patient Email</th>
+                    <th>feedback Date</th>
+                    <th>Read</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in b %}
+                <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td>{{ i.username }}</td>
+                    <td>{{ i.useremail }}</td>
+                    <td>{{ i.date_of_feedback }}</td>
+                    
+                    <td>
+                        <a href="{% url 'laboratory:show_feedback' i.id %}">view</a>
+                        
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+  
+{% endblock %}
